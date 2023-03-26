@@ -1,0 +1,26 @@
+.container{
+    display:flex;
+    flex-direction: row;
+    text-align: center;
+    margin-left: 5%;
+     }
+ 
+ .p1{
+    background-color: rgb(216, 179, 249);
+    width: 80px;
+    height: 30px;
+ }
+
+ .p2{
+    background-color: rgb(107, 107, 244);
+    width: 200px;
+    height: 30px;
+
+ }
+
+ .p3{
+    background-color:rgb(240, 159, 159);
+    width: 200px;
+    height: 30px;
+    
+ }
