@@ -15,12 +15,13 @@ fruits.push("Kiwi");
 
 // 4. Remove “Apples” from the array. Don’t use the same method as in part 1.
 
-fruits.shift();
+fruits.splice(0,1);
+
 
 
 // 5. Sort the array in reverse order
-
 fruits.reverse();
+
 console.log(fruits);
 
 
