@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quote Generator</title>
+  <style>
+    #quote-container {
+      text-align: center;
+      margin-top: 50px;
+    }
+    #quote-text {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    #quote-author {
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <form id="filter-form">
+    <label for="author-input">Author:</label>
+    <input type="text" id="author-input" required>
+    <button type="submit">Filter Quotes</button>
+  </form>
+  
+  <button id="generate-btn">Generate Quote</button>
+  <div id="quote-container">
+    <p id="quote-text"></p>
+    <p id="quote-author"></p>
+  </div>
+  
+  <button id="char-count-btn">Character Count (with space)</button>
+  <button id="char-count-no-space-btn">Character Count (without space)</button>
+  <button id="word-count-btn">Word Count</button>
+  <button id="like-btn">Like</button>
+  
+  <button id="prev-btn">Previous</button>
+  <button id="next-btn">Next</button>
+  
+  <script src="script.js"></script>
+</body>
+</html>
