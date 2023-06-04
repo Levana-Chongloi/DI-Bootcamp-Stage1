@@ -1,200 +1,126 @@
-// Array of quotes
-var quotes = [
-    {
-      id: 0,
-      author: "Author 1",
-      quote: "Quote 1",
-      likes: 0
-    },
-    {
-      id: 1,
-      author: "Author 2",
-      quote: "Quote 2",
-      likes: 0
-    },
-    {
-      id: 2,
-      author: "Author 3",
-      quote: "Quote 3",
-      likes: 0
-    },
-    // Add more quotes as needed
-  ];
-  
-  var currentQuote = null;
-  var filteredQuotes = [];
-  var filteredIndex = -1;
-  
-  // Function to generate a random quote
-  function generateQuote() {
-    var randomIndex = Math.floor(Math.random() * quotes.length);
-    var quote = quotes[randomIndex];
-    
-    // Check if the generated quote is the same as the current quote
-    if (quote === currentQuote) {
-      // If same, recursively call the function again to generate a new quote
-      generateQuote();
-      return;
-    }
-    
-    // Update the DOM with the generated quote
-    var quoteTextElement = document.getElementById('quote-text');
-    var quoteAuthorElement = document.getElementById('quote-author');
-    
-    quoteTextElement.textContent = quote.quote;
-    quoteAuthorElement.textContent = '- ' + quote.author;
-    
-    // Update the current quote
-    currentQuote = quote;
+const quotes = [
+  {
+    id: 0,
+    author: "Albert Einstein",
+    quote: "Strive not to be a success, but rather to be of value.",
+    likes: 0
+  },
+  {
+    id: 1,
+    author: "Steve Jobs",
+    quote: "Your work is going to fill a large part of your life, and the only way to be truly satisfied is to do what you believe is great work. And the only way to do great work is to love what you do.",
+    likes: 0
+  },
+  {
+    id: 2,
+    author: "Maya Angelou",
+    quote: "I've learned that people will forget what you said, people will forget what you did, but people will never forget how you made them feel.",
+    likes: 0
+  },
+  {
+    id: 3,
+    author: "Nelson Mandela",
+    quote: "Education is the most powerful weapon which you can use to change the world.",
+    likes: 0
   }
   
-  // Function to add a new quote
-  function addQuote(event) {
-    event.preventDefault();
-    
-    var quoteInput = document.getElementById('quote-input');
-    var authorInput = document.getElementById('author-input');
-    
-    var newQuote = {
+];
+
+let currentQuoteIndex = null;
+
+function generateRandomQuote() {
+  let randomIndex = Math.floor(Math.random() * quotes.length);
+  while (randomIndex === currentQuoteIndex) {
+    randomIndex = Math.floor(Math.random() * quotes.length);
+  }
+  currentQuoteIndex = randomIndex;
+  displayQuote();
+}
+
+function displayQuote() {
+  const quoteElement = document.getElementById("quote");
+  const likeCountElement = document.getElementById("likeCount");
+  const quote = quotes[currentQuoteIndex];
+
+  quoteElement.textContent = `"${quote.quote}" - ${quote.author}`;
+  likeCountElement.textContent = `Likes: ${quote.likes}`;
+}
+
+function likeQuote() {
+  const quote = quotes[currentQuoteIndex];
+  quote.likes++;
+  displayQuote();
+}
+
+function addQuote(event) {
+  event.preventDefault();
+  const quoteInput = document.getElementById("quoteInput");
+  const authorInput = document.getElementById("authorInput");
+
+  if (quoteInput.value.trim() !== "" && authorInput.value.trim() !== "") {
+    const newQuote = {
       id: quotes.length,
-      author: authorInput.value,
-      quote: quoteInput.value,
+      author: authorInput.value.trim(),
+      quote: quoteInput.value.trim(),
       likes: 0
     };
-    
     quotes.push(newQuote);
-    
-    // Reset the form inputs
-    quoteInput.value = '';
-    authorInput.value = '';
-    
-    // Log the updated quotes array
-    console.log(quotes);
+    quoteInput.value = "";
+    authorInput.value = "";
+    console.log("New quote added:", newQuote);
+  } else {
+    console.log("Please fill in both fields.");
   }
-  
-  // Function to calculate character count
-  function getCharacterCount(withSpace) {
-    var quoteText = currentQuote.quote;
-    
-    if (withSpace) {
-      return quoteText.length;
-    } else {
-      // Remove spaces from the quote text
-      var quoteTextWithoutSpace = quoteText.replace(/\s/g, '');
-      return quoteTextWithoutSpace.length;
+}
+
+function filterQuotes() {
+  const authorFilterInput = document.getElementById("authorFilterInput");
+  const filteredQuotes = quotes.filter(quote =>
+    quote.author.toLowerCase().includes(authorFilterInput.value.toLowerCase())
+  );
+  if (filteredQuotes.length > 0) {
+    currentQuoteIndex = 0;
+    displayQuote();
+  } else {
+    currentQuoteIndex = null;
+    document.getElementById("quote").textContent = "No quotes found for this author.";
+  }
+}
+
+function navigateToPreviousQuote() {
+  if (currentQuoteIndex !== null) {
+    currentQuoteIndex--;
+    if (currentQuoteIndex < 0) {
+      currentQuoteIndex = quotes.length - 1;
     }
+    displayQuote();
   }
-  
-  // Function to calculate word count
-  function getWordCount() {
-    var quoteText = currentQuote.quote;
-    
-    // Split the quote text by spaces to get an array of words
-    var words = quoteText.split(' ');
-    
-    // Remove any empty words from the array
-    var filteredWords = words.filter(function(word) {
-      return word !== '';
-    });
-    
-    return filteredWords.length;
-  }
-  
-  // Function to handle liking a quote
-  function likeQuote() {
-    currentQuote.likes++;
-    console.log(currentQuote);
-  }
-  
-  // Function to filter quotes by author
-  function filterQuotes(event) {
-    event.preventDefault();
-    
-    var authorInput = document.getElementById('author-input');
-    var authorName = authorInput.value.trim();
-    
-    if (authorName === '') {
-      filteredQuotes = [];
-    } else {
-      filteredQuotes = quotes.filter(function(quote) {
-        return quote.author.toLowerCase() === authorName.toLowerCase();
-      });
+}
+
+function navigateToNextQuote() {
+  if (currentQuoteIndex !== null) {
+    currentQuoteIndex++;
+    if (currentQuoteIndex >= quotes.length) {
+      currentQuoteIndex = 0;
     }
-    
-    filteredIndex = -1;
-    displayFilteredQuote();
+    displayQuote();
   }
-  
-  // Function to display filtered quote
-  function displayFilteredQuote() {
-    var quoteTextElement = document.getElementById('quote-text');
-    var quoteAuthorElement = document.getElementById('quote-author');
-    
-    if (filteredQuotes.length === 0 || filteredIndex === -1) {
-      quoteTextElement.textContent = '';
-      quoteAuthorElement.textContent = '';
-    } else {
-      var quote = filteredQuotes[filteredIndex];
-      quoteTextElement.textContent = quote.quote;
-      quoteAuthorElement.textContent = '- ' + quote.author;
-    }
-  }
-  
-  // Function to display previous quote
-  function showPreviousQuote() {
-    if (filteredIndex > 0) {
-      filteredIndex--;
-      displayFilteredQuote();
-    }
-  }
-  
-  // Function to display next quote
-  function showNextQuote() {
-    if (filteredIndex < filteredQuotes.length - 1) {
-      filteredIndex++;
-      displayFilteredQuote();
-    }
-  }
-  
-  // Attach event listener to the add quote form submit event
-  var addQuoteForm = document.getElementById('add-quote-form');
-  addQuoteForm.addEventListener('submit', addQuote);
-  
-  // Attach event listener to the filter form submit event
-  var filterForm = document.getElementById('filter-form');
-  filterForm.addEventListener('submit', filterQuotes);
-  
-  // Attach click event listener to the buttons
-  var generateBtn = document.getElementById('generate-btn');
-  generateBtn.addEventListener('click', generateQuote);
-  
-  var charCountBtn = document.getElementById('char-count-btn');
-  charCountBtn.addEventListener('click', function() {
-    var charCount = getCharacterCount(true);
-    console.log('Character Count (with space):', charCount);
-  });
-  
-  var charCountNoSpaceBtn = document.getElementById('char-count-no-space-btn');
-  charCountNoSpaceBtn.addEventListener('click', function() {
-    var charCountNoSpace = getCharacterCount(false);
-    console.log('Character Count (without space):', charCountNoSpace);
-  });
-  
-  var wordCountBtn = document.getElementById('word-count-btn');
-  wordCountBtn.addEventListener('click', function() {
-    var wordCount = getWordCount();
-    console.log('Word Count:', wordCount);
-  });
-  
-  var likeBtn = document.getElementById('like-btn');
-  likeBtn.addEventListener('click', likeQuote);
-  
-  var prevBtn = document.getElementById('prev-btn');
-  prevBtn.addEventListener('click', showPreviousQuote);
-  
-  var nextBtn = document.getElementById('next-btn');
-  nextBtn.addEventListener('click', showNextQuote);
-  
-  // Initial quote generation on page load
-  generateQuote();
-  
+}
+
+const generateBtn = document.getElementById("generateBtn");
+generateBtn.addEventListener("click", generateRandomQuote);
+
+const likeBtn = document.getElementById("likeBtn");
+likeBtn.addEventListener("click", likeQuote);
+
+const addQuoteForm = document.getElementById("addQuoteForm");
+addQuoteForm.addEventListener("submit", addQuote);
+
+const filterBtn = document.getElementById("filterBtn");
+filterBtn.addEventListener("click", filterQuotes);
+
+const previousBtn = document.getElementById("previousBtn");
+previousBtn.addEventListener("click", navigateToPreviousQuote);
+
+const nextBtn = document.getElementById("nextBtn");
+nextBtn.addEventListener("click", navigateToNextQuote);

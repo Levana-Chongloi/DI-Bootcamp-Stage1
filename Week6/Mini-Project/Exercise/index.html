@@ -1,42 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Quote Generator</title>
-  <style>
-    #quote-container {
-      text-align: center;
-      margin-top: 50px;
-    }
-    #quote-text {
-      font-size: 24px;
-      margin-bottom: 10px;
-    }
-    #quote-author {
-      font-size: 18px;
-    }
-  </style>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <form id="filter-form">
-    <label for="author-input">Author:</label>
-    <input type="text" id="author-input" required>
-    <button type="submit">Filter Quotes</button>
+  <section id="quoteSection">
+    <h2>Generated Quote:</h2>
+    <p id="quote"></p>
+    <div id="likeSection">
+      <button id="likeBtn">Like</button>
+      <span id="likeCount"></span>
+    </div>
+  </section>
+
+  <button id="generateBtn">Generate Quote</button>
+
+  <form id="addQuoteForm">
+    <input type="text" id="quoteInput" placeholder="Quote" required>
+    <input type="text" id="authorInput" placeholder="Author" required>
+    <button type="submit">Add Quote</button>
   </form>
-  
-  <button id="generate-btn">Generate Quote</button>
-  <div id="quote-container">
-    <p id="quote-text"></p>
-    <p id="quote-author"></p>
+
+  <form id="filterForm">
+    <input type="text" id="authorFilterInput" placeholder="Author Name">
+    <button type="button" id="filterBtn">Filter</button>
+  </form>
+
+  <div id="navigationButtons">
+    <button id="previousBtn">Previous</button>
+    <button id="nextBtn">Next</button>
   </div>
-  
-  <button id="char-count-btn">Character Count (with space)</button>
-  <button id="char-count-no-space-btn">Character Count (without space)</button>
-  <button id="word-count-btn">Word Count</button>
-  <button id="like-btn">Like</button>
-  
-  <button id="prev-btn">Previous</button>
-  <button id="next-btn">Next</button>
-  
+
   <script src="script.js"></script>
 </body>
 </html>
