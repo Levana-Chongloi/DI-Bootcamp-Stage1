@@ -41,11 +41,17 @@
 
 -- SELECT first_name, last_name FROM students WHERE first_name LIKE '%a';
 
-SELECT first_name, last_name FROM students WHERE first_name LIKE '_%a%';
+-- SELECT first_name, last_name FROM students WHERE first_name LIKE '_%a%';
 
-SELECT first_name, last_name FROM students WHERE id IN (1, 3);
+-- SELECT first_name, last_name FROM students WHERE id IN (1, 3);
 
-SELECT * FROM students WHERE birth_date >= '2000-01-01';
+-- SELECT * FROM students WHERE birth_date >= '2000-01-01';
+
+SELECT COUNT(*) FROM students;
+
+INSERT INTO students ( last_name, first_name, birth_date)
+VALUES ('Ben','', '1991-04-26')
+
 
 
 
