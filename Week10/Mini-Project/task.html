@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task List</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="task-style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>Task List</h1>
+    <div class="task-container">
+        <div class="row header-row">
+            <div class="column">Name</div>
+            <div class="column">Starting Date</div>
+            <div class="column">End Date</div>
+            <div class="column">Description</div>
+            <div class="column">Status</div>
+        </div>
+        <div id="taskList"></div>
+    </div>
+
+    <script>
+        window.addEventListener("DOMContentLoaded", function() {
+            var tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+            var taskList = document.getElementById("taskList");
+
+            for (var i = 0; i < tasks.length; i++) {
+                var task = tasks[i];
+                var taskRow = document.createElement("div");
+                taskRow.className = "row";
+
+                var nameColumn = document.createElement("div");
+                nameColumn.className = "column";
+                nameColumn.innerHTML = task.name;
+                taskRow.appendChild(nameColumn);
+
+                var startDateColumn = document.createElement("div");
+                startDateColumn.className = "column";
+                startDateColumn.innerHTML = task.startDate;
+                taskRow.appendChild(startDateColumn);
+
+                var endDateColumn = document.createElement("div");
+                endDateColumn.className = "column";
+                endDateColumn.innerHTML = task.endDate;
+                taskRow.appendChild(endDateColumn);
+
+                var descriptionColumn = document.createElement("div");
+                descriptionColumn.className = "column";
+                descriptionColumn.innerHTML = task.description;
+                taskRow.appendChild(descriptionColumn);
+
+                var statusColumn = document.createElement("div");
+                statusColumn.className = "column";
+                statusColumn.innerHTML = task.isCompleted ? "Completed" : "Not Completed";
+                taskRow.appendChild(statusColumn);
+
+                taskList.appendChild(taskRow);
+            }
+        });
+    </script>
+</body>
+</html>

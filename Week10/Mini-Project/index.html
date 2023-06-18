@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Task</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>Add Task</h1>
+    <form id="taskForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+        <label for="description">Description:</label>
+        <textarea id="description" required></textarea>
+        <label for="startDate">Start Date and Time:</label>
+        <input type="datetime-local" id="startDate" required>
+        <label for="endDate">End Date and Time:</label>
+        <input type="datetime-local" id="endDate" required>
+        <input type="submit" value="Add Task">
+    </form>
+</body>
+</html>
