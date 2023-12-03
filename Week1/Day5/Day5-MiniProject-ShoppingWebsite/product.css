@@ -1,0 +1,363 @@
+
+.row1{
+    margin-top: 5%;
+}
+
+
+li{
+    display:inline-block;
+    float:center;
+    color: white;
+    padding-right: 5px;
+    margin-top: 2%;
+    font-size: larger;
+    margin-left: 10%;
+}
+
+li a{
+    text-decoration: none;
+    color: brown;
+}
+
+.column{
+    width: 200px;
+    height:100px;
+    float: left;
+    margin-left: 50px;
+   
+}
+
+
+#blacktop{
+    margin-left: 40px;
+}
+
+#blueshirt{
+    margin-left: 40px;
+}
+
+
+#whiteshirt{
+    margin-left: 40px;
+}
+
+
+#whitetop{
+    margin-left: 40px;
+}
+
+
+#newprice1{
+    margin-left: 47px;
+    margin-top: -5%;
+}
+
+#oldprice1{
+    margin-top:-17%;
+    margin-left:100px;
+    text-decoration: line-through;
+    color: grey;
+}
+
+#newprice2{
+    margin-left: 47px;
+    margin-top: -5%;
+}
+
+#oldprice2{
+    margin-top:-17%;
+    margin-left:100px;
+    text-decoration: line-through;
+    color: grey;
+}
+
+#newprice3{
+    margin-left: 47px;
+    margin-top: -5%;
+}
+
+#oldprice3{
+    margin-top:-17%;
+    margin-left:100px;
+    text-decoration: line-through;
+    color: grey;
+}
+
+#newprice4{
+    margin-left: 47px;
+    margin-top: -5%;
+}
+
+#oldprice4{
+    margin-top:-17%;
+    margin-left:100px;
+    text-decoration: line-through;
+    color: grey;
+}
+
+#btn1{
+    margin-left: 40px;
+   
+}
+
+#btn2{
+    margin-left: 50px;
+}
+
+#btn3{
+    margin-left: 50px;
+}
+
+#btn4{
+    margin-left: 50px;
+    margin-top: -4%;
+}
+
+
+.row2{
+    margin-top: 36%;
+}
+
+.row3{
+    margin-top: 67%;
+    margin-bottom: 60px;
+}
+
+.logo{
+    width:60px;
+    height:50px;
+}
+
+h1{
+    margin-left: 35%;
+    color: brown;
+}
+
+
+
+.wish{
+    margin-top: -100%;
+    margin-left: 35%;
+    transition: .5s ease;
+    opacity: 0;
+
+}
+
+
+.image1{
+      opacity: 1;
+        display: block;
+        width: 100%;
+        height: auto;
+        transition: .5s ease;
+        backface-visibility: hidden; 
+
+
+      }
+
+      .image1:hover{
+        opacity: 0.3;
+      }
+
+      .wish:hover{
+      opacity:1;
+    }
+
+
+    .wish2{
+        margin-top: -100%;
+        margin-left: 40%;
+        transition: .5s ease;
+        opacity: 0;
+        
+    
+    }
+    
+    .image2{
+          opacity: 1;
+            display: block;
+            width: 100%;
+            height: auto;
+            transition: .5s ease;
+            backface-visibility: hidden; 
+    
+    
+          }
+    
+          .image2:hover{
+            opacity: 0.3;
+          }
+    
+          .wish2:hover{
+          opacity:1;
+        }
+    
+
+        .wish3{
+            margin-top: -100%;
+            margin-left: 40%;
+            transition: .5s ease;
+            opacity: 0;
+            
+        
+        }
+        
+        .image3{
+              opacity: 1;
+                display: block;
+                width: 100%;
+                height: auto;
+                transition: .5s ease;
+                backface-visibility: hidden; 
+        
+        
+              }
+        
+              .image3:hover{
+                opacity: 0.3;
+              }
+        
+              .wish3:hover{
+              opacity:1;
+            }
+
+.wish4{
+    margin-top: -100%;
+    margin-left: 40%;
+    transition: .5s ease;
+    opacity: 0;
+                
+            
+            }
+            
+.image4{
+    opacity: 1;
+    display: block;   
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden; 
+ }
+            
+.image4:hover{
+    opacity: 0.3;
+}
+            
+.wish4:hover{
+    opacity:1;
+}
+
+            
+ .wish21{
+    margin-top: -100%;
+    margin-left: 40%;
+    transition: .5s ease;
+    opacity: 0;
+                                
+}
+                            
+ .image21{
+    opacity: 1;
+    display: block;   
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden; 
+                            
+}
+                            
+.image21:hover{
+    opacity: 0.3;
+}
+                            
+.wish21:hover{
+  opacity:1;
+  }
+
+  .wish33{
+    margin-top: -100%;
+    margin-left: 40%;
+    transition: .5s ease;
+    opacity: 0;
+                                
+}
+                            
+ .image33{
+    opacity: 1;
+    display: block;   
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden; 
+                            
+}
+                            
+.image33:hover{
+    opacity: 0.3;
+}
+                            
+.wish33:hover{
+  opacity:1;
+  }
+
+
+#para{
+    width: 500px;
+    height:500px;
+}
+
+footer{
+    margin-left: 26%;
+    font-family: cursive;
+    font-weight: lighter;
+    color: brown;
+}
+                            
+            
+            
+            
+            
+            
+            
+            
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
