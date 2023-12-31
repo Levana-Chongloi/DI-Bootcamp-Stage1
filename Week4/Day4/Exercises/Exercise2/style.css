@@ -1,0 +1,15 @@
+        /*Add a light blue background and padding to the div */
+        div {
+            background-color: lightblue;
+            padding: 10px;
+        }
+
+        /* Add a border to the li containing the text "Pete" */
+        li:nth-child(2) {
+            border: 1px solid black;
+        }
+
+        /* Change the font size of the whole body */
+        body {
+            font-size: 16px;
+        }
