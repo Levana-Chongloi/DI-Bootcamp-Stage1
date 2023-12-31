@@ -1,0 +1,23 @@
+/* Add a CSS rule to set the initial background color of h2 */
+article h2 {
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+/* Add a CSS rule to change the background color of h2 when clicked */
+article h2.clicked {
+    background-color: red;
+}
+
+/* Add a CSS rule to set the initial display of h3 */
+article h3 {
+display: block;
+transition: display 0.3s ease;
+cursor: pointer;
+}
+
+/* Add a CSS rule to hide h3 when the 'hidden' class is applied */
+article h3.hidden {
+display: none;
+}
