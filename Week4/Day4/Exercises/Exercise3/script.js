@@ -1,24 +1,17 @@
-    // Retrieve the div and console.log it
-    var containerDiv = document.getElementById('container');
-    console.log(containerDiv);
+var navBar = document.getElementById('navBar');
+navBar.setAttribute('id', 'socialNetworkNavigation');
 
-    // Change the name “Pete” to “Richard”
-    document.getElementById('pete').innerHTML = 'Richard';
+// 3. Add a new <li> to the <ul>
+var ul = navBar.firstElementChild; // Get the <ul> element
+var newLi = document.createElement('li'); // Create a new <li> element
+var textNode = document.createTextNode('Logout'); // Create a text node
+newLi.appendChild(textNode); // Append the text node to the <li> element
+ul.appendChild(newLi); // Append the <li> element to the <ul>
 
-    // Delete the <li> that contains the text node “Sarah”
-    var sarahElement = document.querySelector('.list:nth-child(2) li:nth-child(2)');
-    sarahElement.parentNode.removeChild(sarahElement);
+// 4. Retrieve the first and last <li> elements
+var firstLi = ul.firstElementChild;
+var lastLi = ul.lastElementChild;
 
-    // Change each first name of the two <ul>'s to your name using a loop
-    var ulElements = document.querySelectorAll('.list');
-    for (var i = 0; i < ulElements.length; i++) {
-        ulElements[i].getElementsByTagName('li')[0].innerHTML = 'Your Name';
-    }
-
-    // Add a class called student_list to both of the <ul>'s
-    for (var i = 0; i < ulElements.length; i++) {
-        ulElements[i].classList.add('student_list');
-    }
-
-    // Add the classes university and attendance to the first <ul>
-    ulElements[0].classList.add('university', 'attendance');
+// Display the text of each link
+console.log('First link: ' + firstLi.textContent);
+console.log('Last link: ' + lastLi.textContent);

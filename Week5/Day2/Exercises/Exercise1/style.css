@@ -21,3 +21,14 @@ cursor: pointer;
 article h3.hidden {
 display: none;
 }
+
+/* Add a CSS rule to set the initial font weight of paragraphs */
+article p {
+font-weight: normal;
+transition: font-weight 0.3s ease;
+}
+
+/* Add a CSS rule to set the font weight to bold when the 'bold-text' class is applied */
+article p.bold-text {
+font-weight: bold;
+}
